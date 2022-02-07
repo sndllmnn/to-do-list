@@ -3,30 +3,31 @@ const addBtn = document.querySelector('#addBtn');
 const nameButton = document.querySelector('#nameButton');
 let toDoList = document.querySelector('#toDoList');
 let vorname = prompt("Wie heißt du?");
+const firstLetter = vorname.slice(0,1);
+firstCapitalLetter = firstLetter.toUpperCase();  // capital letter
+const listName = document.querySelector('h1'); 
 
 
 function setName() {
-  const listName = document.querySelector('h1'); //funktioniert nicht global, wieso?
-  const firstLetter = vorname.slice(0,1);
-  firstCapitalLetter = firstLetter.toUpperCase(); // capital letter
   vorname = firstCapitalLetter+(vorname.slice(1).toLowerCase());
   listName.textContent = vorname +', das ist deine stark ausbaufähige To-do-Liste.';
 }
 
-function updateName() { //funktioniert nicht
-  const listName = document.querySelector('h1'); 
+document.addEventListener('DOMContentLoaded', setName);
+
+
+function updateName() { 
+  vorname = prompt("Wie heißt du?"); 
   listName.textContent = vorname +', das ist deine stark ausbaufähige To-do-Liste.';
 }
 
-document.addEventListener('DOMContentLoaded', setName);
-nameButton.addEventListener('click', updateName); //funktioniert nicht
+nameButton.addEventListener('click', updateName); 
 
 
 function addToDo() {
     var newEntry = document.createElement('li');
     newEntry.textContent = document.querySelector("#addToDo").value;
-    document.body.appendChild(newEntry);
+    toDoList.appendChild(newEntry);
   } 
 
-  addBtn.onclick = function() {addToDo()}; //funktioniert nicht
-  addBtn.addEventListener('click', addToDo); //funktioniert nicht
+  addBtn.addEventListener('click', addToDo); 
