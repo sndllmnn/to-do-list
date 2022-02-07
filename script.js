@@ -9,7 +9,7 @@ function setName() {
   const listName = document.querySelector('h1'); //funktioniert nicht global, wieso?
   const firstLetter = vorname.slice(0,1);
   firstCapitalLetter = firstLetter.toUpperCase(); // capital letter
-  vorname = firstCapitalLetter+(vorname.slice(1));
+  vorname = firstCapitalLetter+(vorname.slice(1).toLowerCase());
   listName.textContent = vorname +', das ist deine stark ausbaufähige To-do-Liste.';
 }
 
